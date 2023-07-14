@@ -1,0 +1,86 @@
+{
+  "name": "光圈智播助手",
+  "description": "光圈为您的直播事业保驾护航💪",
+  "version": "3.22.4",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": [
+        "*://buyin.jinritemai.com/*",
+        "https://fxg.jinritemai.com/ffa/live_control/live/control*"
+      ],
+      "js": [
+        "vendor/axios.0.21.1.minjs",
+        "vendor/polyfill.6.26.0.minjs",
+        "vendor/17.0.2_umd_react.production.minjs",
+        "vendor/17.0.2_umd_react-dom.production.minjs",
+        "vendor/4.21.5_antd.minjs",
+        "vendors.js",
+        "common.js",
+        "content.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://bo.meideng.net/*"
+      ],
+      "js": [
+        "common.js",
+        "content_bo.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://fxg.jinritemai.com/ffa/morder/order/list*"
+      ],
+      "js": [
+        "vendor/axios.0.21.1.minjs",
+        "vendor/polyfill.6.26.0.minjs",
+        "vendor/17.0.2_umd_react.production.minjs",
+        "vendor/17.0.2_umd_react-dom.production.minjs",
+        "vendor/4.21.5_antd.minjs",
+        "vendors.js",
+        "common.js",
+        "content_fxg.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "/asset/*",
+    "/fonts/*",
+    "/vendor/*.minjs",
+    "/vendor/*.js",
+    "/*"
+  ],
+  "background": {
+    "scripts": [
+      "vendor/axios.0.21.1.minjs",
+      "vendors.js",
+      "common.js",
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo_64_white.png",
+      "32": "logo_64_white.png",
+      "48": "logo_64_white.png",
+      "128": "logo_64_white.png"
+    }
+  },
+  "permissions": [
+    "cookies",
+    "webRequest",
+    "*://*.meideng.net/*",
+    "*://*.jinritemai.com/*"
+  ],
+  "icons": {
+    "16": "logo_64_white.png",
+    "32": "logo_64_white.png",
+    "48": "logo_64_white.png",
+    "128": "logo_64_white.png"
+  }
+}
